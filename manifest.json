@@ -1,0 +1,43 @@
+{
+    "manifest_version": 3,
+    "name": "Rye's Ilias Helper",
+    "version": "0.0.1",
+    "description": "A helper extension for Ilias platform.",
+    "icons": {
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    },
+    "incognito": "not_allowed",
+    "permissions": [
+      "storage",
+      "scripting",
+      "activeTab"
+    ],
+    "host_permissions": [
+      "*://*.ilias.uni-koeln.de/*",
+      "*://ilias.uni-koeln.de/*",
+      "*://*.ilias.fh-koeln.de/*",
+      "*://ilias.fh-koeln.de/*",
+      "*://*.ilias.hft-stuttgart.de/*",
+      "*://ilias.hft-stuttgart.de/*",
+      "*://ilias.fh-dortmund.de/*"
+    ],
+    "background": {
+      "service_worker": "dist/background.js"
+    },
+    "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "js": [
+        "dist/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }],
+    "web_accessible_resources": [{
+      "resources": [
+        "dist/*.woff2", 
+        "dist/*.css"
+      ],
+      "matches": ["<all_urls>"]
+  }]
+}

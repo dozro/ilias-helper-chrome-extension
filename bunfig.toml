@@ -1,0 +1,2 @@
+[install.scopes]
+# fortawesome = {url = "https://npm.fontawesome.com/", username = "token", password = "$NPM_PASSWORD"}
