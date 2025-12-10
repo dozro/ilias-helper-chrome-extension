@@ -5,7 +5,8 @@
     "description": "A helper extension for Ilias platform.",
     "icons": {
       "48": "images/icon-48.png",
-      "128": "images/icon-128.png"
+      "128": "images/icon-128.png",
+      "256": "images/icon-256.png"
     },
     "incognito": "not_allowed",
     "permissions": [
