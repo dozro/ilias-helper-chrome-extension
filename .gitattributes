@@ -1,0 +1,2 @@
+vendored/* linguist-vendored
+*.png filter=lfs diff=lfs merge=lfs -text
