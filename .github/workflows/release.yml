@@ -28,8 +28,23 @@ jobs:
       - name: Zip extension
         run: 7z a chrome-extension.zip ./dist/*
 
+      - name: Debug release context
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "release.upload_url='${{ github.event.release.upload_url }}'"
+          echo "actor=${{ github.actor }}"
+          if [ -z "$GITHUB_TOKEN" ]; then
+            echo "GITHUB_TOKEN secret is empty"
+            exit 1
+          else
+            echo "GITHUB_TOKEN secret present"
+          fi
+
       - name: Upload to release
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./chrome-extension.zip
