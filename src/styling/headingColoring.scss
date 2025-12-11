@@ -16,3 +16,19 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+
+@use "colors" as colors;
+
+.ryHeadingCat0 {
+  color: lighten(colors.$light_primary, 20%);
+  @media (prefers-color-scheme: dark) {
+    color: colors.$dark_primary;
+  }
+}
+
+.ryHeadingCat1 {
+  color: colors.$light_primary;
+  @media (prefers-color-scheme: dark) {
+    color: colors.$dark_primary;
+  }
+}

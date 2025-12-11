@@ -1,0 +1,11 @@
+{
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "tsconfig.json": "tsconfig.*.json, env.d.ts",
+    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .oxlint*, oxlint*, .prettier*, prettier*, .editorconfig, bun.lock, bunfig.toml, .simple-git-hooks.json",
+    ".gitignore": ".*ignore, .gitattributes",
+    "auto-imports.d.ts": "components.d.ts",
+    "icon.png": "icon-*.png",
+    "LICENSE": "GPLV3FileHeader"
+  }
+}

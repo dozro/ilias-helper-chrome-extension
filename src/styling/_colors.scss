@@ -1,6 +1,7 @@
-/*
+/*!
     a chrome extension to help with ilias platform
     Copyright (C) 2025  itsrye.dev
+    @license GPL-3.0-or-later
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,9 +16,19 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-.ryDownloadButton{
-    cursor: pointer;
-    padding: 2px;
-    border-radius: 4px;
-    background-color: #DCA1A1;
-}
+$light_primary: #dca1a1;
+$light_primaryDark: #b27c7c;
+$light_secondary: #c1b8b0;
+$light_background: #faf8f7;
+$light_surface: #f2eded;
+$light_textPrimary: #1a1a1a;
+$light_textSecondary: #4a4a4a;
+$light_accent: #7aa3cc;
+$light_accentDark: #4a76a8;
+$dark_primary: #e3b6b6;
+$dark_primaryDark: #b27c7c;
+$dark_secondary: #8e8580;
+$dark_background: #1e1a1a;
+$dark_surface: #2c2525;
+$dark_textPrimary: #f9f7f7;
+$dark_textSecondary: #b49d9d;
