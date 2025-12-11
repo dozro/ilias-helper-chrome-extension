@@ -41,6 +41,7 @@ function pdfHandling(pdfUrl: string) {
     .then((r) => r.blob())
     .then((blob) => {
       const url = URL.createObjectURL(blob);
+      window.open(url, "_blank");
       // Auto-cleanup after 10s
       setTimeout(() => URL.revokeObjectURL(url), 10000);
     });
@@ -74,8 +75,7 @@ function handleBlocks() {
         downloadButtonWrapper.className = "ryButtonTooltipWrapper";
         let downloadButton = document.createElement("i");
         downloadButton.className =
-          "fas fa-file-arrow-down ry ryIconInBody ryDownloadButtonSingleFile";
-        downloadButtonWrapper.appendChild(downloadButton);
+          "fas fa-file-arrow-down ry ryDownloadButtonSingleFile ryIconInBody";
         downloadButtonWrapper.appendChild(downloadButtonToolTip);
         downloadButtonToolTip.className = "ryButtonTooltip";
         downloadButtonToolTip.innerText = "Download this file";
@@ -86,8 +86,8 @@ function handleBlocks() {
         let openPdfToolTip = document.createElement("span");
         let openPdfWrapper = document.createElement("span");
         openPdfWrapper.className = "ryButtonTooltipWrapper";
-        openPdfWrapper.appendChild(openPdf);
         openPdfWrapper.appendChild(openPdfToolTip);
+        openPdfWrapper.appendChild(openPdf);
         openPdfToolTip.className = "ryButtonTooltip";
         openPdfToolTip.innerText =
           "Temporarily open this PDF without saving it permanently";
@@ -125,7 +125,21 @@ $(document).on("click", ".ryDownloadButtonSingleFile", function (e) {
     console.warn("No href found in item");
   }
 });
+$(document).on("click", ".il_ContainerItemPreview", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
 
+  console.log("Preview button clicked - disabled by extension");
+  // Vom Button zum ListItem hochgehen
+  let $listItem = $(this).closest(".il_ContainerListItem");
+  let $link = $listItem.find("a").first();
+  let url = $link.attr("href");
+  if (downloadLinkPattern.test(url || "")) {
+    pdfHandling(url!);
+  } else {
+    console.warn("No href found in item");
+  }
+});
 $(document).on("click", ".ryOpenPdfButtonSingleFile", function (e) {
   e.preventDefault();
   e.stopPropagation();
