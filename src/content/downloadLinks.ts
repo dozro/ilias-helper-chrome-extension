@@ -16,6 +16,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+import "../shim";
+import $ from "jquery";
 
 export function downloadLinks(urls: string[]) {
   urls.forEach((url, index) => {

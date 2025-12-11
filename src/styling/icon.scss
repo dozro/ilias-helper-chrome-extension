@@ -1,3 +1,23 @@
+/* Normalize Font Awesome SVG icon rendering across browsers (incl. Firefox) */
+svg[data-icon] {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  /* Prevent inherited line-height/border from distorting icons */
+  line-height: 1;
+  border: 0;
+}
+
+/* Ensure buttons using icons align text and icons consistently */
+.ryDownloadButton,
+.ryDownloadButtonSingleFile,
+.ryOpenPdfButtonSingleFile,
+.il_ContainerItemPreview {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
 /*!
     a chrome extension to help with ilias platform
     Copyright (C) 2025  itsrye.dev

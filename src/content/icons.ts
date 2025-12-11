@@ -3,7 +3,8 @@ import {
   faDownload,
   faFileArrowDown,
   faBinoculars,
+  faInfo,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faDownload, faFileArrowDown, faBinoculars);
+library.add(faDownload, faFileArrowDown, faBinoculars, faInfo);
 dom.watch();

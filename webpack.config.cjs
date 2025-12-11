@@ -21,7 +21,15 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: "ts-loader",
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-typescript"],
+            },
+          },
+          { loader: "ts-loader" }, // TS -> JS, then Babel
+        ],
         exclude: /node_modules/,
       },
       {
@@ -70,7 +78,10 @@ module.exports = {
     environment: {
       arrowFunction: false,
       globalThis: false,
-      importMetaDirnameAndFilename: true,
+      importMetaDirnameAndFilename: false,
+      document: true,
+      dynamicImport: false,
+      dynamicImportInWorker: false,
     },
   },
   optimization: {
@@ -84,4 +95,5 @@ module.exports = {
     ],
     realContentHash: true,
   },
+  externalsType: "window",
 };

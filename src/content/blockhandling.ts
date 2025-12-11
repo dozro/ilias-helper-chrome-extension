@@ -16,11 +16,14 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+import "../shim";
+import $ from "jquery";
 
 import "./icons";
 import "../styling/styling";
 import { downloadLinkPattern } from "./constants";
 import { createPDFPreviewButton } from "./pdfPreviewButton";
+import { handleDropdownMenu } from "./dropdown";
 
 export function handleBlocks() {
   let containerBlocks = $(".ilContainerBlock");
@@ -67,5 +70,6 @@ export function handleBlocks() {
         "fas fa-download ry ryIconInHeading ryDownloadButton";
       if (listItems.length > 0) headerText.after(downloadButton);
     }
+    handleDropdownMenu($(block).find(".ilFloatRight").first());
   });
 }
