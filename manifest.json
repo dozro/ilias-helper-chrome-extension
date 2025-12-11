@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Rye's Ilias Helper",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A helper extension for Ilias platform.",
   "icons": {
     "48": "images/icon-48.png",
@@ -36,7 +36,11 @@
   "browser_specific_settings": {
     "gecko": {
       "id": "iliashelper@itsrye.dev",
-      "strict_min_version": "58.0"
+      "strict_min_version": "58.0",
+      "data_collection_permissions": {
+        "required": ["websiteContent"],
+        "optional": []
+      }
     }
   }
 }
